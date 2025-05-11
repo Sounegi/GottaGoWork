@@ -664,6 +664,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1485624386}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 32185144}
 --- !u!212 &48222785
 SpriteRenderer:
@@ -2183,6 +2184,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1815170022}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 912539152}
 --- !u!212 &147702031
 SpriteRenderer:
@@ -3508,6 +3510,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 242040383}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 993755871}
 --- !u!212 &212521161
 SpriteRenderer:
@@ -3664,6 +3667,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1665204384}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 424820546}
 --- !u!212 &212630751
 SpriteRenderer:
@@ -4052,6 +4056,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1409092713}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1984720340}
 --- !u!212 &242566772
 SpriteRenderer:
@@ -5497,6 +5502,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1266102563}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 841189754}
 --- !u!212 &417971246
 SpriteRenderer:
@@ -5950,6 +5956,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 335710822}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 630155442}
 --- !u!212 &430530855
 SpriteRenderer:
@@ -140615,6 +140622,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1031065428}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 505245937}
 --- !u!212 &459920747
 SpriteRenderer:
@@ -140919,6 +140927,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 943457492}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1083595094}
 --- !u!212 &481901222
 SpriteRenderer:
@@ -141262,6 +141271,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1372021861}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1250467155}
 --- !u!212 &492007533
 SpriteRenderer:
@@ -142351,7 +142361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &597873270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -347193,6 +347203,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1233999435}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1747075655}
 --- !u!212 &753945250
 SpriteRenderer:
@@ -347885,6 +347896,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1236346618}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 519949902}
 --- !u!212 &785009089
 SpriteRenderer:
@@ -349737,6 +349749,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 999502835}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1527192294}
 --- !u!212 &944945455
 SpriteRenderer:
@@ -351212,6 +351225,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 938283508}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1445046220}
 --- !u!212 &1040308025
 SpriteRenderer:
@@ -351485,6 +351499,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1024767323}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1734501761}
 --- !u!212 &1100645534
 SpriteRenderer:
@@ -354066,6 +354081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 946715956}
+  moneyText: {fileID: 0}
   startingPanel: {fileID: 2096487848}
   winningPanel: {fileID: 603652908}
   winText: {fileID: 627142838}
@@ -354225,6 +354241,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 565915512}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 556685843}
 --- !u!212 &1363759376
 SpriteRenderer:
@@ -358635,6 +358652,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1393127704}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 252009991}
 --- !u!212 &1721182177
 SpriteRenderer:
@@ -360276,6 +360294,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 163104737}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1531583973}
 --- !u!212 &1915839393
 SpriteRenderer:
@@ -360432,6 +360451,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1118082495}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 2093310210}
 --- !u!212 &1923886130
 SpriteRenderer:
@@ -361228,6 +361248,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1896257853}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1689089915}
 --- !u!212 &1979368987
 SpriteRenderer:
@@ -363011,6 +363032,7 @@ MonoBehaviour:
   vehicleTrigger: {fileID: 1939273955}
   vehicleMaxHP: 100
   vehicleCurrentHP: 0
+  cost: 0
   approach: {fileID: 1939059468}
 --- !u!212 &2138271105
 SpriteRenderer:

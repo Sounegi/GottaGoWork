@@ -163,7 +163,9 @@ public class PlayerController : MonoBehaviour
         playerCollider.isTrigger = true;
         this.transform.SetParent(selectedVehicle.transform);
         currentTransform = selectedVehicle.transform;
-        //TODO: highlight vehicle, change sprite
+        GameManager.instance.PayFee(selectedVehicle.cost);
+        //TODO: highlight vehicle, change sprite, cut money
+
     }
 
     public void DropFromVehicle()

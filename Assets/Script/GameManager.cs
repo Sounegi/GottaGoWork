@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
 
     [Header ("Play")]
     [SerializeField] private TMPro.TextMeshProUGUI timerText;
+    [SerializeField] private TMPro.TextMeshProUGUI moneyText;
     [SerializeField] private GameObject startingPanel;
     private float currentTime;
+    private int playerMoney;
     private bool play = false;
 
     [Header ("Win")]
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
         startingPanel.SetActive(true);
         winningPanel.SetActive(false);
         bestTime = PlayerPrefs.GetFloat("BestTime", 9999.0f);
+        playerMoney = PlayerPrefs.GetInt("Money", 300);
     }
 
     private void Awake()
@@ -43,7 +46,8 @@ public class GameManager : MonoBehaviour
         if (play)
         {
             currentTime += Time.deltaTime;
-            timerText.text = Mathf.Floor(currentTime / 60) + ":" + Mathf.RoundToInt(currentTime % 60);
+            timerText.text = Mathf.Floor(currentTime / 60) + ":" + (currentTime % 60).ToString("#.00");
+            moneyText.text = playerMoney.ToString();
         }
             
     }
@@ -67,6 +71,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void PayFee(int fees)
+    {
+        playerMoney -= fees;
+    }
+
     public void CheckWin()
     {
         play = false;
@@ -74,28 +83,32 @@ public class GameManager : MonoBehaviour
         winningPanel.SetActive(true);
         if(currentTime >= 120.0f)
         {
-            winText.text = "You're late! Well we couldn't fired you anyway\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + Mathf.RoundToInt(currentTime % 60);
+            winText.text = "You're late! Well we couldn't fired you anyway\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + (currentTime % 60).ToString("#.00");
+            playerMoney += 25;
 
         }
         else if(currentTime >= 60.0f)
         {
-            winText.text = "You're on time! Well, I'll keep my eyes on you..\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + Mathf.RoundToInt(currentTime % 60);
+            winText.text = "You're on time! Well, I'll keep my eyes on you..\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + (currentTime % 60).ToString("#.00");
+            playerMoney += 100;
         }
         else if(currentTime >= 30.0f)
         {
-            winText.text = "Oh! You're quite fast, huh? Unfortunately, we don't give bonus for that\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + Mathf.RoundToInt(currentTime % 60);
+            winText.text = "Oh! You're quite fast, huh? Unfortunately, we don't give bonus for that\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + (currentTime % 60).ToString("#.00");
+            playerMoney += 100;
         }
         else
         {
-            winText.text = "What! How did you.. Can't believe you arrived here first\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + Mathf.RoundToInt(currentTime % 60);
+            winText.text = "What! How did you.. Can't believe you arrived here first\n Your time is " + Mathf.Floor(currentTime / 60) + ":" + (currentTime % 60).ToString("#.00");
+            playerMoney += 200;
         }
         if (currentTime <= bestTime)
         {
             bestTime = currentTime;
             PlayerPrefs.SetFloat("BestTime", bestTime);
         }
-        recordText.text = "Your best time is " + +Mathf.Floor(bestTime / 60) + ":" + Mathf.RoundToInt(bestTime % 60);
-
+        recordText.text = "Your best time is " + +Mathf.Floor(bestTime / 60) + ":" + (bestTime % 60).ToString("#.00");
+        PlayerPrefs.SetInt("Money", playerMoney);
     }
 
     public void Restart()

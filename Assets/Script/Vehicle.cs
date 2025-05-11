@@ -16,6 +16,7 @@ public class Vehicle : MonoBehaviour
     [SerializeField] Collider2D vehicleTrigger;
     [SerializeField] private float vehicleMaxHP;
     [SerializeField] private float vehicleCurrentHP;
+    public int cost;
     private Vector3 defaultPosition;
     private Quaternion defaultRotation;
 
