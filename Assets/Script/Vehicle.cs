@@ -22,6 +22,8 @@ public class Vehicle : MonoBehaviour
 
     [Header ("UI")]
     [SerializeField] private GameObject approach;
+    [SerializeField] private GameObject approachText;
+    [SerializeField] private GameObject hpBar;
 
     private void Start()
     {
@@ -29,13 +31,34 @@ public class Vehicle : MonoBehaviour
         vehicleCollider = GetComponent<Collider2D>();
         vehicleCurrentHP = vehicleMaxHP;
         approach.SetActive(false);
+        //hpBar.SetActive(false);
         defaultPosition = this.transform.position;
         defaultRotation = this.transform.rotation;
+        vehicleCollider.isTrigger = false;
     }
 
     private void TakeDamage()
     {
-        vehicleCurrentHP -= vehicleRB.velocity.magnitude / 100.0f;
+        if (vehicleRB.velocity.magnitude <= 2.0f)
+            return;
+        vehicleCurrentHP -= vehicleRB.velocity.magnitude;
+        UpdateHealthBar();
+        if (vehicleCurrentHP <= 0.0f)
+        {
+            PlayerController.playerInstance.DropFromVehicle();
+            vehicleCollider.isTrigger = true;
+        }
+    }
+
+    public void ShowHpBar()
+    {
+        hpBar.SetActive(true);
+    }
+
+    private void UpdateHealthBar()
+    {
+        
+        hpBar.transform.localScale = new Vector3(vehicleCurrentHP/vehicleMaxHP, 0.2f, 1f);
     }
 
     public void ResetPosition()
@@ -44,6 +67,14 @@ public class Vehicle : MonoBehaviour
         this.transform.rotation = defaultRotation;
         vehicleRB = GetComponent<Rigidbody2D>();
         vehicleCollider = GetComponent<Collider2D>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.collider.CompareTag("Player"))
+        {
+            TakeDamage();
+        }
     }
 
 
@@ -58,6 +89,7 @@ public class Vehicle : MonoBehaviour
                 if (player.onVehicle) return;
                 player.GetVehicle(this.gameObject.GetComponent<Vehicle>());
                 approach.SetActive(true);
+                approachText.SetActive(true);
                 player.HowtoRide();
             }
         }
@@ -73,6 +105,7 @@ public class Vehicle : MonoBehaviour
                 if (player.onVehicle)
                 {
                     approach.SetActive(false);
+                    approachText.SetActive(false);
                     player.GetDown();
                 }
             }
@@ -84,6 +117,7 @@ public class Vehicle : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             approach.SetActive(false);
+            approachText.SetActive(false);
             if (collision.gameObject.TryGetComponent<PlayerController>(out var player))
             {
                 player.ResetVehicle();

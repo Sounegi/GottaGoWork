@@ -164,6 +164,7 @@ public class PlayerController : MonoBehaviour
         this.transform.SetParent(selectedVehicle.transform);
         currentTransform = selectedVehicle.transform;
         GameManager.instance.PayFee(selectedVehicle.cost);
+        selectedVehicle.GetComponent<Vehicle>().ShowHpBar();
         //TODO: highlight vehicle, change sprite, cut money
 
     }
